@@ -1,4 +1,7 @@
-// src/pages/Home.jsx
-export default function Home() {
-  return <h2>Welcome to ACM Karunya</h2>;
+import React from "react";
+import ParticleBackground from "../components/ParticleBackground";
+function App() {
+  return <ParticleBackground />;
 }
+
+export default App;

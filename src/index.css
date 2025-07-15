@@ -1,11 +1,48 @@
+/* Base Layout */
 html, body, #root {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow: scroll; /* Keeps functionality */
+  scroll-behavior: smooth;
+  overflow: hidden; /* Prevent double scrollbars */
+}
+
+/* Enable vertical scroll with snap behavior */
+body {
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
 
+/* Hide scrollbar in WebKit browsers */
 body::-webkit-scrollbar {
-  display: none; /* Chrome, Safari */
+  display: none;
+}
+
+/* Snap sections and animate on load */
+section {
+  scroll-snap-align: start;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  opacity: 0;
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.2s;
+  transition: transform 0.8s ease-in-out;
+  will-change: transform;
+}
+
+/* Animate sections on load */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

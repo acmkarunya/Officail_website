@@ -5,7 +5,7 @@ const ParticleBackground = () => {
     // Load particles config
     window.particlesJS('particles-js', {
       particles: {
-        number: { value: 160, density: { enable: true, value_area: 800 } },
+        number: { value: 115, density: { enable: true, value_area: 800 } },
         color: { value: "#ffffff" },
         shape: { type: "circle", stroke: { width: 0, color: "#000" }, polygon: { nb_sides: 5 } },
         opacity: {
@@ -27,7 +27,7 @@ const ParticleBackground = () => {
         },
         move: {
           enable: true,
-          speed: 3,
+          speed: 2,
           direction: "none",
           random: false,
           straight: false,

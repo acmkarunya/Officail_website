@@ -6,6 +6,5 @@
 
 .main-content {
   margin-top: 60px; /* push below navbar */
-  padding: 2rem;
   z-index: 1;
 }

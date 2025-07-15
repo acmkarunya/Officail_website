@@ -10,14 +10,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@studio-freight/lenis": "^1.0.42",
     "@tsparticles/all": "^3.8.1",
-    "@tsparticles/engine": "^3.8.1",
     "@tsparticles/react": "^3.0.0",
-    "particles.js": "^2.0.0",
+    "framer-motion": "^12.23.6",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.3",
-    "react-tsparticles": "^2.12.2"
+    "tsparticles": "^3.8.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.30.1",

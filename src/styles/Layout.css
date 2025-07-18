@@ -5,6 +5,8 @@
 }
 
 .main-content {
-  margin-top: 60px; /* push below navbar */
+  margin-top: 70px; /* match actual navbar height */
   z-index: 1;
+  min-height: calc(100vh - 70px); /* optional: full height minus navbar */
 }
+

@@ -1,7 +1,7 @@
 // src/components/Layout.jsx
 import React, { useState } from 'react';
 import Navbar from './Navbar';
-import Sidebar from './SideBar';
+import Sidebar from './Sidebar';
 import '../styles/Layout.css';
 import { useEffect } from 'react';
 import Footer from './Footer';

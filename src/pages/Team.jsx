@@ -3,14 +3,12 @@ import TeamCard from '../components/TeamCard';
 import TeamModal from '../components/TeamModal';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import sam from '../assets/sam.jpg';
-import riya from '../assets/riya.jpg'
-import sample from '../assets/sample.jpeg'
+
 const members = [
   {
     name: 'Dr. Sujitha',
     role: 'Faculty Coordinator',
-    image: {sample},
+    image: '/sample.jpeg',
     bio: 'Faculty mentor guiding the ACM Karunya chapter...Faculty mentor guiding the ACM Karunya chapter...Faculty mentor guiding the ACM Karunya chapter...',
     linkedin: '#',
     github: '#',
@@ -21,7 +19,7 @@ const members = [
   {
     name: 'Dr. Narmadha Naveen',
     role: 'Faculty Coordinator',
-    image: {sample},
+    image: '/sample.jpeg',
     bio: 'Faculty mentor guiding the ACM Karunya chapter...Faculty mentor guiding the ACM Karunya chapter...Faculty mentor guiding the ACM Karunya chapter...',
     linkedin: '#',
     github: '#',
@@ -48,7 +46,7 @@ const members = [
   {
     name: 'Brundha K',
     role: 'Secretary',
-    image: {sample},
+    image: '/sample.jpeg',
     bio: 'This is a placeholder bio for Brundha K.',
     linkedin: '',
     github: '',
@@ -57,7 +55,7 @@ const members = [
   {
     name: 'Justina Susan',
     role: 'Treasurer',
-    image: {sample},
+    image: '/sample.jpeg',
     bio: 'This is a placeholder bio for Justina Susan.',
     linkedin: '',
     github: '',
@@ -111,7 +109,7 @@ const members = [
   {
     name: 'A. Riya',
     role: 'Social Media Lead',
-    image: {riya},
+    image: '/riya.jpg',
     bio: 'This is a placeholder bio for A. Riya.',
     linkedin: '',
     github: '',
@@ -147,7 +145,7 @@ const members = [
   {
     name: 'Clement Steve Math',
     role: 'Poster and Video Editing',
-    image: {sample},
+    image: '/sample.jpeg',
     bio: 'This is a placeholder bio for Clement Steve Math.',
     linkedin: '',
     github: '',
@@ -201,7 +199,7 @@ const members = [
   {
     name: 'Grace Catherine J',
     role: 'Vice Member',
-    image: {sample},
+    image: '/sample.jpeg',
     bio: 'This is a placeholder bio for Grace Catherine J.',
     linkedin: '',
     github: '',
@@ -210,7 +208,7 @@ const members = [
   {
     name: 'SAM MICHAEL S',
     role: 'Webmaster',
-    image: {sam},
+    image: '/sam.jpg',
     bio: 'This is a placeholder bio for Grace Catherine J.',
     linkedin: '',
     github: '',
@@ -219,7 +217,7 @@ const members = [
   {
     name: 'Gethsia Jennifer C',
     role: 'Webmaster',
-    image: {sample},
+    image: '/sample.jpeg',
     bio: 'This is a placeholder bio for Grace Catherine J.',
     linkedin: '',
     github: '',

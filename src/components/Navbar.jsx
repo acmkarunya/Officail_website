@@ -2,15 +2,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/Navbar.css';
-
+import logo from '../assets/logo.png';
+import kits from '../assets/kits.png'
 export default function Navbar({ onToggleSidebar }) {
   return (
     <div className='boo'>
     <nav className="navbar">
       {/* Logo + Title */}
       <Link to="/" className="logo">
-      <img src="/kits.png" alt="Logo" />
-        <img src="/logo.png" alt="Logo" />
+      <img src={kits} alt="Logo" />
+;        <img src={logo} alt="Logo" />
         ACM Karunya
       </Link>
 

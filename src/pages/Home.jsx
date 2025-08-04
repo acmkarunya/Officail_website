@@ -1,13 +1,16 @@
 import React from "react";
 import ParticleBackground from "../components/ParticleBackground";
 import Team from "./Team";
-function App() {
+import Gallery from '../components/Gallery/Gallery';
+
+function Home() {
   return (
     <div>
     <ParticleBackground />
+<Gallery/>
     <Team/>
     </div>
   )
 }
 
-export default App;
+export default Home;

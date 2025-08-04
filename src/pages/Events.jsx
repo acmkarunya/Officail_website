@@ -1,30 +1,73 @@
-import React from 'react';
-import '../styles/Events.css'; // Create this file if you want to style separately
+import React, { useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
+import { events } from '../components/Gallery/eventData';
+import '../styles/Events.css';
 
-function Events() {
+
+
+const EventPage = () => {
+  const { id } = useParams();
+  const navigate = useNavigate();
+  const event = events.find((e) => e.id === parseInt(id));
+
+
+  if (!event) return <div className="not-found">Event not found</div>;
+
   return (
-    <div className="events-page">
-      <div className="events-container">
-        <h2>Our Events</h2>
-        <p>Explore the exciting range of workshops, competitions, and tech talks hosted by ACM Karunya.</p>
+    <section className="event-blog">
+      <div className="event-hero">
+        <img
+          src={event.banner || event.image}
+          alt="banner"
+          className="hero-image"
+          loading="lazy"
+        />
+        <div className="hero-overlay">
+          <h1 className="fade-in">{event.title}</h1>
+          <p className="event-date fade-in-delay">
+            📅 {event.date || 'March 2024'} • 🏷️ {event.tags?.join(', ')}
+          </p>
+          <p className="event-subtitle fade-in-delay">{event.subtitle}</p>
+        </div>
 
-        <ul className="events-list">
-          <li>
-            <h3>AI & ML Workshop</h3>
-            <p>Hands-on session on building models using Python.</p>
-          </li>
-          <li>
-            <h3>Hackathon 2025</h3>
-            <p>A 24-hour coding sprint — team up and solve real-world challenges!</p>
-          </li>
-          <li>
-            <h3>Web Development Bootcamp</h3>
-            <p>Beginner to Pro in MERN stack — intensive weekend training.</p>
-          </li>
-        </ul>
+        <div className="event-back-button">
+          <button onClick={() => navigate(-1)}>←</button>
+        </div>
       </div>
-    </div>
-  );
-}
 
-export default Events;
+      <div className="event-content">
+        <div className="blog-container">
+          <div className="blog-main">
+            <h2>{event.title}</h2>
+            <p className="event-paragraph">{event.blog}</p>
+            <blockquote className="event-quote">
+              “{event.quote || 'Inspiration and innovation drive every event we host at ACM KITS.'}”
+            </blockquote>
+          </div>
+
+          <div className="blog-side">
+            <div className="event-stats">
+              <div className="stat-card">📍 {event.location || 'Campus Auditorium'}</div>
+              <div className="stat-card">👥 {event.stats?.participants || '150+ Attendees'}</div>
+              <div className="stat-card">📆 {event.stats?.days || 3} Days</div>
+            </div>
+
+            <ul className="highlight-list">
+              {event.highlights?.map((point, i) => (
+                <li key={i}>{point}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="event-gallery">
+        {event.images?.map((img, i) => (
+          <img key={i} src={img} alt={`event-img-${i}`} className="gallery-img zoom-in" loading="lazy" />
+        ))}
+      </div>
+    </section>
+  );
+};
+
+export default EventPage;

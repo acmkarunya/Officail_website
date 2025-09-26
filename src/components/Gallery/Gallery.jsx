@@ -19,7 +19,7 @@ const Gallery = () => {
   return (
     <section className="gallery-wrapper">
       {/* Upcoming Events */}
-      {upcomingEvents.length > 0 && (
+      {Array.isArray(upcomingEvents) && upcomingEvents.length > 0 && (
         <div className="upcoming-section">
           <div className="upcoming-heading">
             <h1>Upcoming Events</h1>
@@ -53,32 +53,34 @@ const Gallery = () => {
       )}
 
       {/* Past Events */}
-      <div className="gallery-section">
-        <div className="gallery-heading">
-          <h1>Our Past Events</h1>
-          <p>Explore highlights from our previous ACM KITS events.</p>
-        </div>
+      {Array.isArray(pastEvents) && pastEvents.length > 0 && (
+        <div className="gallery-section">
+          <div className="gallery-heading">
+            <h1>Our Past Events</h1>
+            <p>Explore highlights from our previous ACM KITS events.</p>
+          </div>
 
-        <div className="gallery-grid">
-          {pastEvents.map((event) => (
-            <div
-              key={event.id}
-              className="event-card"
-              onClick={() => handleClick(event.id)}
-            >
-              <img src={event.image} alt={event.title} className="event-image" />
-              <div className="event-overlay">
-                <h2>{event.title}</h2>
-                <p>{event.description}</p>
+          <div className="gallery-grid">
+            {pastEvents.map((event) => (
+              <div
+                key={event.id}
+                className="event-card"
+                onClick={() => handleClick(event.id)}
+              >
+                <img src={event.image} alt={event.title} className="event-image" />
+                <div className="event-overlay">
+                  <h2>{event.title}</h2>
+                  <p>{event.description}</p>
+                </div>
+                <div className="event-hover-mask">
+                  <span className="eye-icon"><FiEye /></span>
+                  <span>View Event</span>
+                </div>
               </div>
-              <div className="event-hover-mask">
-                <span className="eye-icon"><FiEye /></span>
-                <span>View Event</span>
-              </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
+      )}
     </section>
   );
 };

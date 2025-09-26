@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; // ✅ correct import
+import { useNavigate } from "react-router-dom";
 import { events } from "./eventsData";
 
 const EventModal = () => {
@@ -8,8 +8,8 @@ const EventModal = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (events.length > 0) {
-      setEvent(events[0]); // Pick latest event
+    if (Array.isArray(events) && events.length > 0) {
+      setEvent(events[0]); // Pick the first/latest event
       setShowModal(true);
     }
   }, []);
@@ -34,7 +34,7 @@ const EventModal = () => {
           background: "#fff",
           borderRadius: "16px",
           width: "100%",
-          maxWidth: "600px", // responsive modal
+          maxWidth: "600px",
           overflow: "hidden",
           boxShadow: "0 10px 30px rgba(0,0,0,0.25)",
           position: "relative",
@@ -86,11 +86,10 @@ const EventModal = () => {
 
         {/* Content */}
         <div style={{ padding: "12px" }}>
-          {/* View More Button */}
           <button
             style={{
-              width: "100%", // full width on mobile
-              maxWidth: "200px", // cap width for larger screens
+              width: "100%",
+              maxWidth: "200px",
               padding: "12px 20px",
               borderRadius: "10px",
               border: "2px solid #007BFF",

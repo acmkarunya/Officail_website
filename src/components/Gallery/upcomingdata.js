@@ -28,3 +28,4 @@
 //     link: "https://forms.gle/your-registration-link",
 //   },
 // ];
+export const events = [];

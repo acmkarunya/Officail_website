@@ -110,51 +110,72 @@
 }
 
 /* Mobile view adjustments */
+/* 📱 Mobile view adjustments */
 @media (max-width: 768px) {
   .modal-content {
-    width: 95%;        /* almost full width */
-    max-height: 90vh;  /* allow taller */
-    padding: 20px;
+    width: 90%;           /* smaller card */
+    max-height: 85vh;     
+    padding: 15px;        /* less padding for compact look */
+    border-radius: 6px;   /* slightly tighter corners */
   }
 
   .modal-inner {
-    flex-direction: column;  /* stack image on top of content */
-    gap: 20px;
+    flex-direction: column;
+    gap: 15px;            /* reduce gap */
   }
 
   .modal-right {
     flex: none;
     width: 100%;
+    order: -1;            /* image on top */
     justify-content: center;
-    order: -1;               /* move image above content */
   }
 
   .modal-photo {
-    width: 100%;             /* full width image */
+    width: 85%;           /* smaller image */
+    max-width: 260px;     /* cap the size */
     height: auto;
     border-radius: 6px;
   }
 
   .modal-left {
     flex: none;
-    max-height: 50vh;        /* scrollable area for text */
+    max-height: 45vh;     /* a bit shorter */
     overflow-y: auto;
-    padding-right: 5px;
+    padding-right: 4px;
   }
 
   .modal-role {
-    font-size: 18px;
-    font-weight: 600;
-    color: #777;
-    margin-bottom: 1px;
+    font-size: 16px; 
     margin-top: 5px;
+    margin-bottom: 2px;
   }
 
   .modal-name {
-    font-size: 36px;
-    font-weight: 700;
-    color: #000;
-    margin-bottom: -2px;
-    margin-top: 5px;
+    font-size: 24px;      /* smaller name */
+    margin-bottom: 6px;
+  }
+
+  .modal-bio {
+    font-size: 14px;      /* smaller text */
+    line-height: 1.4;
+  }
+
+  .modal-socials {
+    margin-top: 10px;     /* space above */
+    margin-bottom: 15px;  /* ✅ space below socials */
+  }
+
+  .modal-socials a {
+    display: inline-block;
+    margin-right: 15px;
+    font-size: 14px;
+  }
+
+  .modal-close {
+    top: 10px;
+    right: 10px;
+    padding: 6px 10px;    /* smaller button */
+    font-size: 14px;
   }
 }

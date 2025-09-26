@@ -64,7 +64,7 @@ const HeroParticles = () => {
         }}
       >
         <h1 style={{ fontSize: "48px", margin: 0 }}>KITS ACM</h1>
-        <p style={{ fontSize: "20px", marginTop: "10px" }}>Welcome</p>
+        <p style={{ fontSize: "20px", marginTop: "10px" }}>Student Chapter</p>
       </div>
     </section>
   );

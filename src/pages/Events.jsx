@@ -9,28 +9,31 @@ const EventPage = () => {
   const navigate = useNavigate();
   const event = events.find((e) => e.id === parseInt(id));
   const [visibleCount, setVisibleCount] = useState(6); // show 6 images initially
+  const [preloadedImages, setPreloadedImages] = useState([]);
 
   if (!event) return <div className="not-found">Event not found</div>;
 
   const loadMore = () => setVisibleCount((prev) => prev + 6);
 
-  // ✅ Preload all event images for faster display
+  // ✅ Preload all event images (hero + gallery) for faster display
   useEffect(() => {
     if (event.images) {
+      const imgs = [];
       event.images.forEach((src) => {
         const img = new Image();
         img.src = src;
+        imgs.push(img);
       });
+      setPreloadedImages(imgs);
     }
+
     // Preload hero/banner image too
-    if (event.banner) {
-      const img = new Image();
-      img.src = event.banner;
-    }
-    if (event.image) {
-      const img = new Image();
-      img.src = event.image;
-    }
+    [event.banner, event.image].forEach((src) => {
+      if (src) {
+        const img = new Image();
+        img.src = src;
+      }
+    });
   }, [event]);
 
   return (
@@ -97,6 +100,8 @@ const EventPage = () => {
             src={img}
             alt={`event-img-${i}`}
             className="gallery-img zoom-in"
+            // ✅ Use the preloaded image if ready
+            onLoad={(e) => e.target.classList.add("loaded")}
           />
         ))}
       </div>

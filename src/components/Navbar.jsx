@@ -20,7 +20,7 @@ export default function Navbar({ onToggleSidebar }) {
         <Link to="/" className="logo">
           <img src="/kits.png" alt="Logo" />
           <img src="/logo.png" alt="Logo" />
-          ACM Karunya
+          <span className="logo-text">ACM Karunya</span>
         </Link>
 
         {/* Desktop nav links */}

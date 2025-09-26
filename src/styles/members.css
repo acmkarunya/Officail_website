@@ -1,0 +1,80 @@
+.members-section {
+  padding: 50px 30px;
+  text-align: center;
+  background: white;
+}
+
+.members-title {
+  font-family: Georgia, 'Times New Roman', Times, serif, "Noto Sans Condensed", sans-serif;
+  font-size: 48px;   /* reduced from 62px */
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-bottom: 40px;
+  color: #000;
+  text-align: center;
+}
+
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px; /* reduced gap */
+  justify-items: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+  .members-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .members-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .members-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.member-card {
+  border: 1px solid #e5e5e5;
+  background: #fff;
+  width: 220px;   /* reduced from 280px */
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 8px; /* smoother look */
+}
+
+.member-card:hover {
+  transform: translateY(-4px);
+}
+
+.member-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.member-info {
+  padding: 10px 12px;
+  text-align: left;
+}
+
+.member-name {
+  font-size: 15px;  /* reduced */
+  font-weight: bold;
+  margin: 0;
+  color: #000;
+}
+
+.member-role {
+  font-size: 13px;  /* reduced */
+  color: #666;
+  margin-top: 4px;
+}

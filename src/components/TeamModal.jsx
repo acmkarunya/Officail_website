@@ -1,46 +1,33 @@
-import '../styles/TeamModal.css';
-import { FaTimes, FaGithub, FaLinkedin, FaInstagram } from 'react-icons/fa';
+import React from 'react'
+import { createPortal } from 'react-dom'
+import useLockBodyScroll from '../hooks/useLockBodyScroll'
+import { motion } from 'framer-motion'
 
-export default function TeamModal({ member, onClose }) {
-  if (!member) return null;
+export default function TeamModal({member,onClose}){
+  useLockBodyScroll(true)
+  React.useEffect(()=>{
+    const onKey=(e)=> e.key==='Escape' && onClose()
+    window.addEventListener('keydown',onKey)
+    return ()=>window.removeEventListener('keydown',onKey)
+  },[onClose])
 
-  const { name, role, image, bio, linkedin, github, instagram } = member;
-
-  return (
-    <div className="team-modal-overlay">
-      <div className="team-modal">
-        <div className="team-modal-image">
-          <img src={image} alt={name} />
-        </div>
-
-        <div className="team-modal-content">
-          <h2>{name}</h2>
-          <h4>{role}</h4>
-          <p>{bio || "This is a placeholder bio. You can update it per person."}</p>
-
-          <div className="team-modal-socials">
-            {linkedin && (
-              <a href={linkedin} target="_blank" rel="noopener noreferrer">
-                <FaLinkedin />
-              </a>
-            )}
-            {github && (
-              <a href={github} target="_blank" rel="noopener noreferrer">
-                <FaGithub />
-              </a>
-            )}
-            {instagram && (
-              <a href={instagram} target="_blank" rel="noopener noreferrer">
-                <FaInstagram />
-              </a>
-            )}
+  const content = (
+    <div className='modal-backdrop' onClick={onClose} role='dialog' aria-modal='true'>
+      <motion.div className='modal' onClick={(e)=>e.stopPropagation()} initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} exit={{opacity:0,y:20}} transition={{duration:0.28}}>
+        <button className='close-x' aria-label='Close' onClick={onClose}>✕</button>
+        <div className='modal-header'>
+          <img className='modal-media' src={member.photo} alt={member.name} />
+          <div className='modal-body'>
+            <div className='modal-name'>{member.name}</div>
+            <div className='modal-role'>{member.roleGroup}{member.title?` · ${member.title}`:''}</div>
+            <p className='modal-bio'>{member.bio}</p>
           </div>
         </div>
-
-        <div className="team-modal-close" onClick={onClose}>
-          <FaTimes />
+        <div className='modal-footer'>
+          {member.links?.map(l=>(<a key={l.url} className='icon-btn' href={l.url} target='_blank' rel='noreferrer'>↗ {l.label}</a>))}
         </div>
-      </div>
+      </motion.div>
     </div>
-  );
+  )
+  return createPortal(content, document.body)
 }

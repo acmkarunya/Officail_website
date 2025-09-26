@@ -1,94 +1,33 @@
-import { useEffect } from 'react';
+// src/components/ParticleBackground.jsx
+import React from "react";
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
 
-const ParticleBackground = () => {
-  useEffect(() => {
-    // Load particles config
-    window.particlesJS('particles-js', {
-      particles: {
-        number: { value: 115, density: { enable: true, value_area: 800 } },
-        color: { value: "#ffffff" },
-        shape: { type: "circle", stroke: { width: 0, color: "#000" }, polygon: { nb_sides: 5 } },
-        opacity: {
-          value: 0.5,
-          random: false,
-          anim: { enable: true, speed: 1, opacity_min: 0.5, sync: false }
-        },
-        size: {
-          value: 4,
-          random: true,
-          anim: { enable: false, speed: 40, size_min: 0.1, sync: false }
-        },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: "#ffffff",
-          opacity: 0.6,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 1.5,
-          direction: "none",
-          random: false,
-          straight: false,
-          out_mode: "out",
-          bounce: false,
-          attract: { enable: false, rotateX: 600, rotateY: 1200 }
-        }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: { enable: true, mode: "repulse" },
-          onclick: { enable: true, mode: "push" },
-          resize: true
-        },
-        modes: {
-          repulse: {
-            distance: 120,
-            duration: 0.4
-          },
-          push: {
-            particles_nb: 4
-          },
-          grab: {
-            distance: 200,
-            line_linked: { opacity: 1 }
-          }
-        }
-      },
-      retina_detect: true
-    });
-  }, []);
+export default function ParticleBackground() {
+  const particlesInit = async (main) => {
+    await loadFull(main);
+  };
 
   return (
-    <div style={{ position: 'relative', width: '100%', height: '100vh', overflow: 'hidden' }}>
-      <div
-        id="particles-js"
-        style={{
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          background: '#0f0f0f',
-          zIndex: 0
-        }}
-      />
-      <div
-        className="content"
-        style={{
-          position: 'relative',
-          zIndex: 1,
-          textAlign: 'center',
-          color: 'white',
-          marginTop: '40vh',
-          fontFamily: 'Arial, sans-serif'
-        }}
-      >
-        <h1>ACM KARUNYA</h1>
-        <p>Coming soon</p>
-      </div>
-    </div>
+    <Particles
+      id="tsparticles"
+      init={particlesInit}
+      options={{
+        fullScreen: { enable: true, zIndex: -1 }, // stays behind everything
+        background: { color: { value: "#000000" } },
+        fpsLimit: 60,
+        interactivity: {
+          events: { onHover: { enable: true, mode: "repulse" } },
+        },
+        particles: {
+          color: { value: "#ffffff" },
+          links: { enable: true, color: "#ffffff", distance: 150 },
+          move: { enable: true, speed: 2 },
+          number: { value: 80 },
+          opacity: { value: 0.5 },
+          size: { value: { min: 1, max: 3 } },
+        },
+      }}
+    />
   );
-};
-
-export default ParticleBackground;
+}

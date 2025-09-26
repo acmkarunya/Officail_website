@@ -1,38 +1,27 @@
-import '../styles/TeamCard.css';
-import { useState } from 'react';
+import React from 'react'
+import TeamModal from './TeamModal'
+import { motion } from 'framer-motion'
 
-export default function TeamCard({ image, name, role, onClick }) {
-  const [tooltipStyle, setTooltipStyle] = useState({ display: 'none' });
-
-  const handleMouseMove = (e) => {
-    setTooltipStyle({
-      left: e.pageX + 12 + 'px',
-      top: e.pageY + 18 + 'px',
-      display: 'block',
-    });
-  };
-
-  const handleMouseLeave = () => {
-    setTooltipStyle({ display: 'none' });
-  };
-
+export default function TeamCard({member,index}){
+  const [open,setOpen]=React.useState(false)
+  const delay = index * 0.06
   return (
-    <>
-      <div
-        className="team-card"
-        onClick={onClick}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-      >
-        <div className="team-image">
-          <img src={image} alt={name} />
+    <motion.article
+      className='card card-tilt'
+      role='listitem'
+      initial={{opacity:0,y:14}}
+      animate={{opacity:1,y:0}}
+      transition={{delay, duration:0.6, ease:[0.2,0.9,0.2,1]}}
+    >
+      <div className='thumb' style={{backgroundImage:`url(${member.photo})`}} />
+      <div className='overlay'>
+        <div className='meta'>
+          <div className='name'>{member.name}</div>
+          <div className='role'>{member.roleGroup}{member.title?` · ${member.title}`:''}</div>
         </div>
-        <h3>{name}</h3>
-        <p>{role}</p>
       </div>
-      <div className="floating-tooltip" style={tooltipStyle}>
-        Click to view more
-      </div>
-    </>
-  );
+      <button className='card-btn' aria-label={`Open bio ${member.name}`} onClick={()=>setOpen(true)} style={{position:'absolute',inset:0,border:0,background:'transparent'}} />
+      {open && <TeamModal member={member} onClose={()=>setOpen(false)} />}
+    </motion.article>
+  )
 }

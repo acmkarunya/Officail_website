@@ -3,9 +3,11 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
 import Home from './pages/Home';
 import EventBlog from './pages/Events';
-import Team from './pages/Team';
 import Layout from './components/Layout';
 import Gallery from './components/Gallery/Gallery';
+import ContactPage from './pages/Contact';
+import UpcomingEventPage from "./pages/UpcomingEventPage";
+
 
 export default function App() {
   const location = useLocation();
@@ -19,9 +21,11 @@ export default function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/team" element={<Team />} />
         <Route path="/events" element={<Gallery />} />
         <Route path="/events/:id" element={<EventBlog />} />
+        <Route path="/upcoming/:id" element={<UpcomingEventPage />} />
+
+        <Route path='/contact' element={<ContactPage />} />
       </Routes>
     </Layout>
   );

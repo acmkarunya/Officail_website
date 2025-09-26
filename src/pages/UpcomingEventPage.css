@@ -1,0 +1,147 @@
+/* ========== Upcoming Event Page ========== */
+.upcoming-event-page {
+  font-family: "Poppins", sans-serif;
+  color: #111;
+  background-color: #f9fbff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== Hero Section ========== */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 60vh;
+  overflow: hidden;
+}
+
+.hero-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+}
+
+.hero-overlay h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.hero-overlay p {
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.back-btn {
+  margin-top: 1.5rem;
+  background: #2563eb;
+  color: #fff;
+  padding: 0.6rem 1.4rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+.back-btn:hover {
+  background: #1e4ed8;
+}
+
+/* ========== Content Section ========== */
+.content {
+  max-width: 900px;
+  margin: 3rem auto;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  animation: fadeUp 0.8s ease-in-out;
+}
+
+.content h2 {
+  font-size: 2rem;
+  color: #2563eb;
+  margin-bottom: 1rem;
+}
+
+.content p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* Highlights */
+.content ul {
+  list-style: none;
+  padding: 0;
+}
+
+.content li {
+  margin-bottom: 0.8rem;
+  font-size: 1rem;
+  color: #444;
+  display: flex;
+  align-items: center;
+}
+
+.content li::before {
+  content: "✔";
+  color: #16a34a;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* ========== Animation ========== */
+@keyframes fadeUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 768px) {
+  .hero-overlay h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-overlay p {
+    font-size: 1rem;
+  }
+
+  .content {
+    padding: 1.5rem;
+    margin: 2rem 1rem;
+  }
+
+  .content h2 {
+    font-size: 1.6rem;
+  }
+
+  .content p {
+    font-size: 0.95rem;
+  }
+}

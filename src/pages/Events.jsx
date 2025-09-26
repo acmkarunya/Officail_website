@@ -1,20 +1,22 @@
-import React, { useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { events } from '../components/Gallery/eventData';
-import '../styles/Events.css';
-
-
+import React, { useState } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { events } from "../components/Gallery/eventData";
+import LazyImage from "../components/LazyImage";
+import "../styles/Events.css";
 
 const EventPage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const event = events.find((e) => e.id === parseInt(id));
-
+  const [visibleCount, setVisibleCount] = useState(6); // show 6 images initially
 
   if (!event) return <div className="not-found">Event not found</div>;
 
+  const loadMore = () => setVisibleCount((prev) => prev + 6);
+
   return (
     <section className="event-blog">
+      {/* Hero Section */}
       <div className="event-hero">
         <img
           src={event.banner || event.image}
@@ -25,31 +27,38 @@ const EventPage = () => {
         <div className="hero-overlay">
           <h1 className="fade-in">{event.title}</h1>
           <p className="event-date fade-in-delay">
-            📅 {event.date || 'March 2024'} • 🏷️ {event.tags?.join(', ')}
+            📅 {event.date || "March 2024"} • 🏷️ {event.tags?.join(", ")}
           </p>
           <p className="event-subtitle fade-in-delay">{event.subtitle}</p>
         </div>
-
         <div className="event-back-button">
-          <button onClick={() => navigate(-1)}>←</button>
+          <button onClick={() => navigate(-1)}>← Back</button>
         </div>
       </div>
 
+      {/* Content Section */}
       <div className="event-content">
         <div className="blog-container">
           <div className="blog-main">
             <h2>{event.title}</h2>
             <p className="event-paragraph">{event.blog}</p>
             <blockquote className="event-quote">
-              “{event.quote || 'Inspiration and innovation drive every event we host at ACM KITS.'}”
+              “{event.quote ||
+                "Inspiration and innovation drive every event we host at ACM KITS."}”
             </blockquote>
           </div>
 
           <div className="blog-side">
             <div className="event-stats">
-              <div className="stat-card">📍 {event.location || 'Campus Auditorium'}</div>
-              <div className="stat-card">👥 {event.stats?.participants || '150+ Attendees'}</div>
-              <div className="stat-card">📆 {event.stats?.days || 3} Days</div>
+              <div className="stat-card">
+                📍 {event.stats?.location || "Campus Auditorium"}
+              </div>
+              <div className="stat-card">
+                👥 {event.stats?.participants || "150+ Attendees"}
+              </div>
+              <div className="stat-card">
+                📆 {event.stats?.days || 3} Days
+              </div>
             </div>
 
             <ul className="highlight-list">
@@ -61,11 +70,26 @@ const EventPage = () => {
         </div>
       </div>
 
+      {/* Gallery Section */}
       <div className="event-gallery">
-        {event.images?.map((img, i) => (
-          <img key={i} src={img} alt={`event-img-${i}`} className="gallery-img zoom-in" loading="lazy" />
+        {event.images?.slice(0, visibleCount).map((img, i) => (
+          <LazyImage
+            key={i}
+            src={img}
+            alt={`event-img-${i}`}
+            className="gallery-img zoom-in"
+          />
         ))}
       </div>
+
+      {/* Load More Button */}
+      {visibleCount < event.images?.length && (
+        <div className="load-more-container">
+          <button className="load-more-btn" onClick={loadMore}>
+            Load More
+          </button>
+        </div>
+      )}
     </section>
   );
 };

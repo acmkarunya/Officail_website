@@ -1,0 +1,16 @@
+#section1, #section2, #section3, #section4 {
+  min-height: 800px;
+}
+
+#section1 {
+  background: royalblue;
+}
+#section2 {
+  background: gold;
+}
+#section3 {
+  background: purple;
+}
+#section4 {
+  background: teal;
+}

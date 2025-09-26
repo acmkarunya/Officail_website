@@ -1,7 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 export default function MemberCard({ member, onClick }) {
   const [hover, setHover] = useState(false);
+
+  // ✅ Preload images
+  useEffect(() => {
+    if (member.image) {
+      const img = new Image();
+      img.src = member.image;
+    }
+    if (member.hoverImage) {
+      const imgHover = new Image();
+      imgHover.src = member.hoverImage;
+    }
+  }, [member.image, member.hoverImage]);
 
   return (
     <div

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { ToastContainer, toast } from "react-toastify";
 import { FaEnvelope, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
@@ -11,6 +11,12 @@ const Contact = () => {
     message: "",
   });
   const [loading, setLoading] = useState(false);
+
+  // ✅ Preload logo image
+  useEffect(() => {
+    const img = new Image();
+    img.src = "/logo.png";
+  }, []);
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -79,75 +85,66 @@ const Contact = () => {
         }}
       >
         {/* Left Section */}
-        {/* Left Section */}
-<div
-  style={{
-    flex: "0 0 40%",
-    padding: "50px 30px",
-    display: "flex",
-    flexDirection: "column",
-    alignItems: "center",
-    justifyContent: "flex-start",
-    borderRight: "1px solid rgba(255, 255, 255, 0.2)",
-  }}
->
-  {/* Logo */}
-  <img
-    src="/logo.png"
-    alt="Logo"
-    style={{
-      width: "80px",
-      marginBottom: "40px",
-      filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.4))",
-    }}
-  />
+        <div
+          style={{
+            flex: "0 0 40%",
+            padding: "50px 30px",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "flex-start",
+            borderRight: "1px solid rgba(255, 255, 255, 0.2)",
+          }}
+        >
+          {/* Logo */}
+          <img
+            src="/logo.png"
+            alt="Logo"
+            style={{
+              width: "80px",
+              marginBottom: "40px",
+              filter: "drop-shadow(0 2px 6px rgba(0,0,0,0.4))",
+            }}
+          />
 
-  {/* Contact Info */}
-  <div
-    style={{
-      width: "100%",
-      lineHeight: "1.9",
-      fontSize: "15px",
-      display: "flex",
-      flexDirection: "column",
-      gap: "15px",
-    }}
-  >
-    {/* Emails */}
-   
-    <p style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-      <FaEnvelope /> acmkarunya@gmail.com
-    </p>
+          {/* Contact Info */}
+          <div
+            style={{
+              width: "100%",
+              lineHeight: "1.9",
+              fontSize: "15px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "15px",
+            }}
+          >
+            <p style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <FaEnvelope /> acmkarunya@gmail.com
+            </p>
+            <p style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <FaPhoneAlt /> Rajhavel (President) – 9043000313
+            </p>
+            <p style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+              <FaPhoneAlt /> Michael (Executive Director) – 8660758665
+            </p>
 
-    
-
-    {/* Named Contacts */}
-    <p style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-      <FaPhoneAlt /> Rajhavel (President) – 9043000313
-    </p>
-    <p style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-      <FaPhoneAlt /> Michael (Executive Director) – 8660758665
-    </p>
-
-    {/* Address */}
-    <div
-      style={{
-        marginTop: "20px",
-        display: "flex",
-        alignItems: "flex-start",
-        gap: "10px",
-      }}
-    >
-      <FaMapMarkerAlt style={{ marginTop: "4px" }} />
-      <p style={{ margin: 0, lineHeight: "1.6" }}>
-        Karunya Institute of Technology and Sciences <br />
-        Coimbatore, Tamil Nadu <br />
-        India
-      </p>
-    </div>
-  </div>
-</div>
-
+            <div
+              style={{
+                marginTop: "20px",
+                display: "flex",
+                alignItems: "flex-start",
+                gap: "10px",
+              }}
+            >
+              <FaMapMarkerAlt style={{ marginTop: "4px" }} />
+              <p style={{ margin: 0, lineHeight: "1.6" }}>
+                Karunya Institute of Technology and Sciences <br />
+                Coimbatore, Tamil Nadu <br />
+                India
+              </p>
+            </div>
+          </div>
+        </div>
 
         {/* Right Section */}
         <div
@@ -159,7 +156,9 @@ const Contact = () => {
             justifyContent: "center",
           }}
         >
-          <h2 style={{ fontSize: "28px", marginBottom: "20px", textAlign: "center" }}>
+          <h2
+            style={{ fontSize: "28px", marginBottom: "20px", textAlign: "center" }}
+          >
             Contact Us
           </h2>
 
@@ -183,7 +182,6 @@ const Contact = () => {
               }}
               required
             />
-
             <input
               type="email"
               name="email"
@@ -200,7 +198,6 @@ const Contact = () => {
               }}
               required
             />
-
             <textarea
               name="message"
               placeholder="Your Message"
@@ -218,7 +215,6 @@ const Contact = () => {
               }}
               required
             />
-
             <button
               type="submit"
               disabled={loading}

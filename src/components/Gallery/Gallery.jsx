@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Gallery.css';
 import { useNavigate } from 'react-router-dom';
 import { events as pastEvents } from './eventData';
@@ -7,6 +7,18 @@ import { FiEye } from 'react-icons/fi';
 
 const Gallery = () => {
   const navigate = useNavigate();
+
+  // ✅ Preload all event images
+  useEffect(() => {
+    const allImages = [
+      ...pastEvents.map((e) => e.image),
+      ...upcomingEvents.map((e) => e.banner),
+    ];
+    allImages.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
 
   const handleClick = (id, isUpcoming = false) => {
     if (isUpcoming) {

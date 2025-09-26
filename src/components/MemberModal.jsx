@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../styles/modal.css";
 
 const MemberModal = ({ member, onClose }) => {
+  // ✅ Preload member image
+  useEffect(() => {
+    if (member.image) {
+      const img = new Image();
+      img.src = member.image;
+    }
+  }, [member.image]);
+
   return (
     <div className="modal-overlay" onClick={onClose}>
       <div className="modal-content" onClick={(e) => e.stopPropagation()}>
@@ -12,8 +20,12 @@ const MemberModal = ({ member, onClose }) => {
             <h2 className="modal-name">{member.name}</h2>
             <p className="modal-bio">{member.bio}</p>
             <div className="modal-socials">
-              <a href={member.socials.portfolio} target="_blank" rel="noreferrer">Portfolio ↗</a>
-              <a href={member.socials.linkedin} target="_blank" rel="noreferrer">Linkedin ↗</a>
+              <a href={member.socials.portfolio} target="_blank" rel="noreferrer">
+                Portfolio ↗
+              </a>
+              <a href={member.socials.linkedin} target="_blank" rel="noreferrer">
+                Linkedin ↗
+              </a>
             </div>
           </div>
           <div className="modal-right">

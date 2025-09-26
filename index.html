@@ -3,6 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/logo.png" />
+
+    <!-- Preload logo -->
+    <link rel="preload" as="image" href="/logo.png" />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ACM KARUNYA</title>
 
@@ -19,6 +23,6 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
 
     <!-- Vite injects final JS here during build -->
-<script type="module" src="/src/main.jsx"></script> <!-- ✅ Correct -->
+    <script type="module" src="/src/main.jsx"></script> <!-- ✅ Correct -->
   </body>
 </html>

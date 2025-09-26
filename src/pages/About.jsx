@@ -1,6 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const About = () => {
+  // Preload images on mount
+  useEffect(() => {
+    const images = [
+      "/kits.jpeg",
+      "/acm.png",
+      "/events/inauguration/in.jpg",
+    ];
+    images.forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   return (
     <section
       style={{
@@ -21,7 +34,7 @@ const About = () => {
           width: "90%",
           margin: "120px auto",
           display: "grid",
-          gridTemplateColumns: "1fr 1fr", // equal width for balance
+          gridTemplateColumns: "1fr 1fr",
           gap: "50px",
           alignItems: "center",
         }}
@@ -65,11 +78,18 @@ const About = () => {
             About KITS
           </h2>
           <p>
-            Karunya Institute of Technology and Sciences (KITS), established in 1986 in Coimbatore, Tamil Nadu, is a nationally recognized university committed to excellence in teaching, research, and innovation. Founded with the vision of raising leaders with competence, compassion, and character, Karunya offers cutting-edge programs in engineering, technology, sciences, and management.
-
-With modern infrastructure, advanced labs, and strong industry collaborations, KITS provides an ecosystem where ideas become impactful solutions. Beyond academics, it nurtures values and leadership, empowering students to address real-world challenges and make a meaningful difference in society.
+            Karunya Institute of Technology and Sciences (KITS), established
+            in 1986 in Coimbatore, Tamil Nadu, is a nationally recognized
+            university committed to excellence in teaching, research, and
+            innovation. Founded with the vision of raising leaders with
+            competence, compassion, and character, Karunya offers cutting-edge
+            programs in engineering, technology, sciences, and management.
+            With modern infrastructure, advanced labs, and strong industry
+            collaborations, KITS provides an ecosystem where ideas become
+            impactful solutions. Beyond academics, it nurtures values and
+            leadership, empowering students to address real-world challenges
+            and make a meaningful difference in society.
           </p>
-          
         </div>
       </div>
 
@@ -79,7 +99,7 @@ With modern infrastructure, advanced labs, and strong industry collaborations, K
           width: "90%",
           margin: "60px auto ",
           display: "grid",
-          gridTemplateColumns: "1fr 1fr", // keep equal balance
+          gridTemplateColumns: "1fr 1fr",
           gap: "50px",
           alignItems: "center",
         }}
@@ -105,20 +125,19 @@ With modern infrastructure, advanced labs, and strong industry collaborations, K
             About ACM
           </h2>
           <p>
-            The Association for Computing Machinery (ACM) is the world’s 
-            largest educational and scientific computing society, uniting 
-            computing professionals, researchers, and students globally. 
-            Founded in 1947, ACM advances computing as a science and profession 
-            through conferences, publications, digital libraries, and special interest groups.
-
+            The Association for Computing Machinery (ACM) is the world’s
+            largest educational and scientific computing society, uniting
+            computing professionals, researchers, and students globally.
+            Founded in 1947, ACM advances computing as a science and profession
+            through conferences, publications, digital libraries, and special
+            interest groups.
           </p>
           <p style={{ marginTop: "15px" }}>
-            With a mission to drive innovation and share knowledge, 
-            ACM fosters collaboration, research, and professional growth. 
-            Its student chapters worldwide provide a platform for learning,
-            networking, and hands-on experience, empowering the next generation
-              of leaders in technology and computing.
-
+            With a mission to drive innovation and share knowledge, ACM fosters
+            collaboration, research, and professional growth. Its student
+            chapters worldwide provide a platform for learning, networking,
+            and hands-on experience, empowering the next generation of leaders
+            in technology and computing.
           </p>
         </div>
 
@@ -143,7 +162,7 @@ With modern infrastructure, advanced labs, and strong industry collaborations, K
           width: "90%",
           margin: "120px auto",
           display: "grid",
-          gridTemplateColumns: "1fr 1fr", // equal width for balance
+          gridTemplateColumns: "1fr 1fr",
           gap: "50px",
           alignItems: "center",
         }}
@@ -187,22 +206,22 @@ With modern infrastructure, advanced labs, and strong industry collaborations, K
             About KITS ACM Student Chapter
           </h2>
           <p>
-           The KITS ACM Student Chapter is a vibrant community 
-           of learners, innovators, and tech enthusiasts at Karunya
-            Institute of Technology and Sciences. Functioning under
-             the Division of Artificial Intelligence and Machine 
-             Learning (AIML), the chapter serves as a platform for 
-             students to explore cutting-edge technologies, enhance 
-             their technical skills, and collaborate on impactful projects.
-
-Through workshops, hackathons, seminars, and knowledge-sharing events, the chapter fosters creativity, leadership, and teamwork. It provides students with opportunities to connect with industry experts, participate in global ACM initiatives, and contribute to solving real-world challenges.
-
-With a vision to inspire innovation and nurture talent, the KITS ACM Student Chapter empowers students to grow as future leaders in technology and research.
+            The KITS ACM Student Chapter is a vibrant community of learners,
+            innovators, and tech enthusiasts at Karunya Institute of Technology
+            and Sciences. Functioning under the Division of Artificial
+            Intelligence and Machine Learning (AIML), the chapter serves as a
+            platform for students to explore cutting-edge technologies, enhance
+            their technical skills, and collaborate on impactful projects.
+            Through workshops, hackathons, seminars, and knowledge-sharing
+            events, the chapter fosters creativity, leadership, and teamwork.
+            It provides students with opportunities to connect with industry
+            experts, participate in global ACM initiatives, and contribute to
+            solving real-world challenges. With a vision to inspire innovation
+            and nurture talent, the KITS ACM Student Chapter empowers students
+            to grow as future leaders in technology and research.
           </p>
-          
         </div>
       </div>
-
     </section>
   );
 };

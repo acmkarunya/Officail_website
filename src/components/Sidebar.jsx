@@ -11,7 +11,9 @@ export default function Sidebar({ isOpen, onClose }) {
         <ul className="sidebar-links">
           <li><Link to="/" onClick={onClose}>Home</Link></li>
           <li><Link to="/events" onClick={onClose}>Events</Link></li>
-          <li><Link to="/team" onClick={onClose}>Team</Link></li>
+          <li><Link to="/members" onClick={onClose}>Team</Link></li>
+          <li><Link to="/contact" onClick={onClose}>Contact</Link></li>
+
         </ul>
       </div>
     </div>

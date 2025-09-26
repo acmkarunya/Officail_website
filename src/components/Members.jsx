@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../styles/members.css";
 import MemberCard from "./MemberCard";
 import MemberModal from "./MemberModal";
@@ -308,9 +308,22 @@ const members = [
   // ... keep adding until 20 members
 ];
 
-
 export default function Members() {
   const [selectedMember, setSelectedMember] = useState(null);
+
+  // ✅ Preload all member images and hover images
+  useEffect(() => {
+    members.forEach((member) => {
+      if (member.image) {
+        const img = new Image();
+        img.src = member.image;
+      }
+      if (member.hoverImage) {
+        const hoverImg = new Image();
+        hoverImg.src = member.hoverImage;
+      }
+    });
+  }, []);
 
   return (
     <div className="members-section">

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { events } from "../components/Gallery/eventData";
 import LazyImage from "../components/LazyImage";
@@ -13,6 +13,25 @@ const EventPage = () => {
   if (!event) return <div className="not-found">Event not found</div>;
 
   const loadMore = () => setVisibleCount((prev) => prev + 6);
+
+  // ✅ Preload all event images for faster display
+  useEffect(() => {
+    if (event.images) {
+      event.images.forEach((src) => {
+        const img = new Image();
+        img.src = src;
+      });
+    }
+    // Preload hero/banner image too
+    if (event.banner) {
+      const img = new Image();
+      img.src = event.banner;
+    }
+    if (event.image) {
+      const img = new Image();
+      img.src = event.image;
+    }
+  }, [event]);
 
   return (
     <section className="event-blog">

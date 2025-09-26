@@ -24,16 +24,33 @@ const About = () => {
               gap: 30px !important;
               text-align: center !important;
             }
-            .about-row h2 {
+
+            /* Heading first */
+            .about-row .heading-block {
               order: 1;
               text-align: center !important;
+              grid-column: 1 / -1; /* span across full width */
             }
+
+            /* Image second */
             .about-row .image-block {
               order: 2;
             }
+
+            /* Text last */
             .about-row .text-block {
               order: 3;
             }
+
+            /* Text formatting */
+            .about-row .text-block p {
+              text-align: justify !important;
+              text-justify: inter-word !important;
+              hyphens: auto !important;
+              word-spacing: 0.05em;
+            }
+
+            /* Image resize */
             .about-row img {
               max-width: 90% !important;
               margin: 0 auto !important;
@@ -42,7 +59,7 @@ const About = () => {
         `}
       </style>
 
-      {/* Top Row */}
+      {/* ================= About KITS ================= */}
       <div
         className="about-row"
         style={{
@@ -54,7 +71,7 @@ const About = () => {
           alignItems: "center",
         }}
       >
-        {/* Left Image */}
+        {/* Image */}
         <div className="image-block" style={{ textAlign: "center" }}>
           <img
             src="/kits.jpeg"
@@ -72,7 +89,7 @@ const About = () => {
           </p>
         </div>
 
-        {/* Right Text */}
+        {/* Text with heading */}
         <div
           className="text-block"
           style={{
@@ -84,6 +101,7 @@ const About = () => {
           }}
         >
           <h2
+            className="heading-block"
             style={{
               fontSize: "34px",
               marginBottom: "20px",
@@ -95,11 +113,11 @@ const About = () => {
           </h2>
           <p>
             Karunya Institute of Technology and Sciences (KITS), established in
-            1986 in Coimbatore, Tamil Nadu, is a nationally recognized university
-            committed to excellence in teaching, research, and innovation.
-            Founded with the vision of raising leaders with competence,
-            compassion, and character, Karunya offers cutting-edge programs in
-            engineering, technology, sciences, and management.
+            1986 in Coimbatore, Tamil Nadu, is a nationally recognized
+            university committed to excellence in teaching, research, and
+            innovation. Founded with the vision of raising leaders with
+            competence, compassion, and character, Karunya offers cutting-edge
+            programs in engineering, technology, sciences, and management.
           </p>
           <p style={{ marginTop: "15px" }}>
             With modern infrastructure, advanced labs, and strong industry
@@ -111,7 +129,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* Bottom Row - ACM */}
+      {/* ================= About ACM ================= */}
       <div
         className="about-row"
         style={{
@@ -123,7 +141,7 @@ const About = () => {
           alignItems: "center",
         }}
       >
-        {/* Left Text */}
+        {/* Text with heading */}
         <div
           className="text-block"
           style={{
@@ -135,6 +153,7 @@ const About = () => {
           }}
         >
           <h2
+            className="heading-block"
             style={{
               fontSize: "34px",
               marginBottom: "20px",
@@ -161,7 +180,7 @@ const About = () => {
           </p>
         </div>
 
-        {/* Right Image */}
+        {/* Image */}
         <div className="image-block" style={{ textAlign: "center" }}>
           <img
             src="/acm.png"
@@ -177,7 +196,7 @@ const About = () => {
         </div>
       </div>
 
-      {/* Last Row - KITS ACM */}
+      {/* ================= About KITS ACM Student Chapter ================= */}
       <div
         className="about-row"
         style={{
@@ -189,7 +208,7 @@ const About = () => {
           alignItems: "center",
         }}
       >
-        {/* Left Image */}
+        {/* Image */}
         <div className="image-block" style={{ textAlign: "center" }}>
           <img
             src="/events/inauguration/in.jpg"
@@ -207,7 +226,7 @@ const About = () => {
           </p>
         </div>
 
-        {/* Right Text */}
+        {/* Text with heading */}
         <div
           className="text-block"
           style={{
@@ -219,6 +238,7 @@ const About = () => {
           }}
         >
           <h2
+            className="heading-block"
             style={{
               fontSize: "34px",
               marginBottom: "20px",

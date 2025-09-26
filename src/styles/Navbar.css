@@ -127,30 +127,3 @@ body {
     display: none;
   }
 }
-@media (max-width: 768px) {
-  .navbar-links {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    background: rgba(15, 14, 14, 0.95);
-    position: absolute;
-    top: 70px; /* below navbar */
-    left: 0;
-    width: 100%;
-    padding: 20px;
-    text-align: center;
-  }
-
-  .navbar-links a {
-    font-size: 1.3rem; /* uniform size */
-    font-weight: 600;
-    padding: 12px;
-    border-radius: 8px;
-    display: block;
-  }
-
-  .navbar-links a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    border-color: #fff;
-  }
-}

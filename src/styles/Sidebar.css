@@ -82,13 +82,12 @@
   align-items: center;
   justify-content: center;
 
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 600;
 
-  width: 180px;       /* ✅ fixed width */
-  height: 64px;       /* ✅ fixed height */
-  
-  padding: 0;         /* let width/height control sizing */
+  min-width: 140px;     /* flexible instead of fixed */
+  max-width: 90%;       /* adapt to screen size */
+  padding: 14px 20px;   /* controls height responsively */
   box-sizing: border-box;
 
   color: #ffffff;
@@ -109,6 +108,29 @@
     transform 0.2s ease,
     box-shadow 0.3s ease;
 }
+
+/* 📱 Mobile sidebar buttons */
+@media (max-width: 768px) {
+  .sidebar-links li a {
+    width: 100%;             /* take full sidebar width */
+    max-width: 90%;          /* leave little margin */
+    margin: 8px auto;        /* center with spacing */
+    font-size: 1rem;         /* smaller text */
+    padding: 14px;           /* balanced height */
+    border-radius: 10px;
+  }
+}
+
+
+/* 📱 Extra small devices */
+@media (max-width: 480px) {
+  .sidebar-links li a {
+    font-size: 0.9rem;
+    min-width: 100px;
+    padding: 10px 14px;
+  }
+}
+
 
 
 .sidebar-links li a:hover {

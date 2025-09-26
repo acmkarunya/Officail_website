@@ -1,30 +1,59 @@
-<head>
-  <meta charset="UTF-8" />
-  <link rel="icon" type="image/png" href="/logo.png" />
-  <link rel="preload" as="image" href="/logo.png" />
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/logo.png" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ACM KARUNYA</title>
+    <!-- Preload logo -->
+    <link rel="preload" as="image" href="/logo.png" />
 
-  <!-- SEO Description -->
-  <meta name="description" content="ACM Karunya - The official student chapter of ACM at Karunya Institute of Technology and Sciences. Join us for tech events, workshops, and community engagement.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ACM KARUNYA</title>
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:title" content="ACM KARUNYA" />
-  <meta property="og:description" content="The official ACM student chapter at Karunya. Explore tech workshops, hackathons, and events." />
-  <meta property="og:image" content="https://acmkarunya.netlify.app/image.png" /> <!-- Use FULL URL -->
-  <meta property="og:url" content="https://acmkarunya.netlify.app/" />
-  <meta property="og:type" content="website" />
+    <!-- ✅ SEO Meta Description -->
+    <meta 
+      name="description" 
+      content="Official ACM Karunya Student Chapter. Explore events, workshops, and innovation in computing and technology at Karunya Institute of Technology and Sciences." 
+    />
 
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="ACM KARUNYA" />
-  <meta name="twitter:description" content="The official ACM student chapter at Karunya. Explore tech workshops, hackathons, and events." />
-  <meta name="twitter:image" content="https://acmkarunya.netlify.app/image.png" /> <!-- Same image -->
+    <!-- ✅ Open Graph (for WhatsApp, LinkedIn, Facebook) -->
+    <meta property="og:title" content="ACM Karunya Student Chapter" />
+    <meta 
+      property="og:description" 
+      content="Join the ACM Karunya Student Chapter for events, workshops, and opportunities in computing, AI, and technology." 
+    />
+    <meta property="og:image" content="https://acmkarunya.netlify.app/image.png" /> <!-- ⚡ Full absolute URL -->
+    <meta property="og:url" content="https://acmkarunya.netlify.app/" />
+    <meta property="og:type" content="website" />
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <!-- ✅ Twitter Card (for Twitter/X) -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ACM Karunya Student Chapter" />
+    <meta 
+      name="twitter:description" 
+      content="Explore computing, AI, and tech events with ACM Karunya Student Chapter." 
+    />
+    <meta name="twitter:image" content="https://acmkarunya.netlify.app/image.png" /> <!-- ⚡ Same image -->
 
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-</head>
+    <!-- Fonts -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link 
+      rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" 
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- Particles.js (optional) -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <!-- Vite injects final JS here during build -->
+    <script type="module" src="/src/main.jsx"></script> <!-- ✅ Correct -->
+  </body>
+</html>

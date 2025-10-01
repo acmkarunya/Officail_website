@@ -2,6 +2,7 @@ export const events = [
   {
   id: 1,
   title: "Best Manager",
+  date: "13-08-2025",
   subtitle: "Battle of the Boardroom",
   banner: "/events/tbm/yes.jpg", // ✅ Hero banner
   image: "/tbm.png", // ✅ Gallery image
@@ -35,6 +36,7 @@ export const events = [
   id: 2,
   title: "ACM Inauguration",
   subtitle: "Kickoff 2025-26",
+  date: "2-09-2025",
   banner: "/events/inauguration/ina.jpg", // ✅ Hero banner
   image: "/events/inauguration/inaug.webp", // ✅ Gallery image
   tags: ["Inauguration", "ACM KITS", "2025"],
@@ -63,11 +65,11 @@ export const events = [
   {
   id: 3,
   title: "Visual Intelligence",
+  date: "04-09-2025",
   subtitle: "The Rise of AI in Video Creation",
   banner: "/events/vi/group.JPG", // ✅ replace with correct hero banner
   image: "/events/vi/event.webp", // ✅ Gallery image
   tags: ["Workshop", "AI", "ACM x IEEE", "2025"],
-  date: "September 2025",
   blog: "The ACM and IEEE Student Chapters at Karunya Institute of Technology and Sciences jointly organized 'Visual Intelligence: The Rise of AI in Video Creation' on 4th September 2025 at the AIML Gallery Hall. With 143 participants, the event explored the transformative role of Artificial Intelligence in digital media, focusing on hands-on learning of AI-powered tools for video creation and editing. Participants engaged in live demonstrations, technical sessions, and a timed competition to apply their creativity using AI technologies.",
   highlights: [
     "143 participants from multiple departments",
@@ -95,6 +97,7 @@ export const events = [
 {
   id: 4,
   title: "Leader's Meet",
+  date: "12-09-2025",
   subtitle: "Leadership, Documentation, and Strategic Growth",
   banner: "/events/leaders/1.webp", // ✅ replace with actual banner from event
   image: "/events/leaders/cover.jpg", // ✅ representative gallery image
@@ -126,9 +129,9 @@ export const events = [
 {
   id: 5,
   title: "TechXplore 2025",
+  date: "17-09-2025",
   subtitle: "Explore. Innovate. Redefine the Future.",
   banner: "/events/techxplore/1.webp", // ✅ replace with actual banner
-  date: "September 2025",
 
   image: "/events/techxplore/TechXplore.png", // ✅ poster or representative gallery image
   tags: ["AI/ML", "Innovation", "Hackathon", "Cloud", "Generative AI"],

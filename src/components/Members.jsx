@@ -278,32 +278,7 @@ const members = [
     linkedin: "#",
   },
 },
-{
-  id: 22,
-  name: "Shemaiah",
-  role: "Platform and Communication Lead",
-  image: "/members/shem h.png",
-  hoverImage: "/members/shem.png",
-  bio: "Shemaiah manages the chapter’s platforms and communication channels, keeping KITS ACM members informed and connected.",
-  socials: {
-    twitter: "#",
-    facebook: "#",
-    linkedin: "#",
-  },
-},
-{
-  id: 23,
-  name: "Sam Jerish D",
-  role: "Platform and Communication Lead",
-  image: "/members/jerish h.png",
-  hoverImage: "/members/jerish.png",
-  bio: "Sam Jerish D supports platform management and communication for the KITS ACM Student Chapter, ensuring smooth information flow and engagement.",
-  socials: {
-    twitter: "#",
-    facebook: "#",
-    linkedin: "#",
-  },
-}
+
 
   // ... keep adding until 20 members
 ];

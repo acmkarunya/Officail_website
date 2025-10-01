@@ -211,7 +211,7 @@ const About = () => {
         {/* Image */}
         <div className="image-block" style={{ textAlign: "center" }}>
           <img
-            src="/events/inauguration/in.jpg"
+            src="/acm.jpg"
             alt="KITS ACM"
             style={{
               width: "100%",
